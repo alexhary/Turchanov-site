@@ -1,0 +1,519 @@
+/* ================== BASE ================== */
+html,
+body {
+    margin: 0;
+    background: #1d1d1d;
+    color: #eee;
+    font: 16px/1.4 system-ui,Segoe UI,Roboto,Arial;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Единая ширина контента на десктопе (без формул) */
+.container,
+.site-header__inner,
+.accordion,
+.site-footer__inner,
+.grid {
+    width: 1008px;
+
+    /* 3 колонки по 320 + 2 промежутка по 24 = 1008 */
+    max-width: 92vw;
+
+    /* осторожное сжатие на узких экранах */
+    margin: 0 auto;
+}
+
+/* ================== HEADER ================== */
+.site-header {
+    background: #1a1a1a;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.site-header__inner {
+    padding: 14px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.site-logo {
+    font-family: Oswald,system-ui;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.site-logo .accent {
+    color: #4aa0d6;
+}
+
+.site-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.flag,
+.icon,
+.social a {
+    width: 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    opacity: .95;
+    transition: transform .12s,opacity .12s;
+}
+
+.flag:hover,
+.icon:hover,
+.social a:hover {
+    transform: translateY(-1px);
+    opacity: 1;
+}
+
+.site-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(255,255,255,.12);
+}
+
+/* ================== ACCORDION ================== */
+.accordion {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .35s ease;
+}
+
+.accordion__inner {
+    padding: 14px 0;
+    background: #121212;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.panel {
+    display: none;
+    color: #c6ccd1;
+    line-height: 1.55;
+}
+
+.panel[aria-hidden="false"] {
+    display: block;
+}
+
+.panel h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+}
+
+/* ================== FORM ================== */
+.form {
+    max-width: 640px;
+}
+
+.field {
+    margin: 10px 0;
+}
+
+.label {
+    display: block;
+    font-size: .9rem;
+    color: #9aa3aa;
+    margin: 0 0 6px;
+}
+
+.input,
+.select,
+.textarea {
+    width: 100%;
+    background: #0b0b0b;
+    color: #ddd;
+    border: 1px solid rgba(255,255,255,.12);
+    padding: 10px 12px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.btn {
+    margin-top: 12px;
+    background: transparent;
+    color: #eee;
+    border: 2px solid #bfbfbf;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    border-color: #fff;
+}
+
+/* ================== FOOTER ================== */
+.site-footer {
+    border-top: 1px solid rgba(255,255,255,.08);
+    background: #141414;
+}
+
+.site-footer__inner {
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: #9aa3aa;
+}
+
+.social {
+    display: flex;
+    gap: 14px;
+}
+
+/* ================== GRID ================== */
+.stage {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 320px 320px 320px;
+
+    /* фиксировано */
+    grid-auto-rows: 320px;
+
+    /* квадраты */
+    gap: 24px;
+
+    /* фиксированный gap */
+    grid-template-areas: "one two three"
+    "a   a   four"
+    "a   a   five"
+    "six seven eight";
+}
+
+.one {
+    grid-area: one;
+}
+
+.two {
+    grid-area: two;
+}
+
+.three {
+    grid-area: three;
+}
+
+.four {
+    grid-area: four;
+}
+
+.five {
+    grid-area: five;
+}
+
+.six {
+    grid-area: six;
+}
+
+.seven {
+    grid-area: seven;
+}
+
+.eight {
+    grid-area: eight;
+}
+
+.a {
+    grid-area: a;
+}
+
+.tile {
+    position: relative;
+}
+
+.tilt {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    perspective: 900px;
+    transform-style: preserve-3d;
+    will-change: transform;
+    overflow: visible;
+}
+
+.layer {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+.layer>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.layer.text {
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.caption {
+    background: transparent;
+    color: #fff;
+    letter-spacing: .3px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    backdrop-filter: blur(1px);
+    font-family: Oswald,sans-serif;
+    font-weight: 200;
+    font-size: 22px;
+}
+
+/* ================== LIGHTBOX ================== */
+.lb-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.88);
+    display: grid;
+    place-items: center;
+    z-index: 9999;
+    padding: 2rem;
+}
+
+.lb-dialog {
+    position: relative;
+    max-width: 96vw;
+    width: 100%;
+}
+
+.lb-img {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    margin: 0 auto;
+    box-shadow: 0 12px 36px rgba(0,0,0,.5);
+}
+
+.lb-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    background: rgba(0,0,0,.45);
+    color: #fff;
+    cursor: pointer;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.lb-btn img {
+    width: 26px;
+    height: 26px;
+}
+
+.lb-prev {
+    left: .25rem;
+}
+
+.lb-next {
+    right: .25rem;
+}
+
+.lb-next img {
+    transform: rotate(180deg);
+}
+
+.lb-close {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 10000;
+    border: 0;
+    background: rgba(0,0,0,.45);
+    color: #fff;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    font-size: 24px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.lb-count {
+    margin-top: .6rem;
+    text-align: center;
+    opacity: .85;
+    font-weight: 600;
+}
+
+.lb-desc {
+    margin-top: .25rem;
+    text-align: center;
+    opacity: .9;
+    font-size: .95rem;
+    max-width: 92vw;
+    margin-inline: auto;
+}
+
+/* ================== SLIDER ================== */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #1d1d1d;
+}
+
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transform: translateX(0);
+}
+
+.slide {
+    flex: 0 0 100%;
+    position: relative;
+}
+
+.slide>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.s-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0;
+    background: rgba(0,0,0,.45);
+    color: #fff;
+    cursor: pointer;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.s-btn img {
+    width: 26px;
+    height: 26px;
+}
+
+.s-prev {
+    left: .25rem;
+}
+
+.s-next {
+    right: .25rem;
+}
+
+.s-next img {
+    transform: rotate(180deg);
+}
+
+/* ================== TABLET ================== */
+@media (max-width: 900px){
+    .container,
+    .site-header__inner,
+    .accordion,
+    .site-footer__inner,
+    .grid {
+        width: 720px;
+        max-width: 92vw;
+    }
+
+    .grid {
+        grid-template-columns: 220px 220px 220px;
+
+        /* тоже фиксированно, но меньше */
+        grid-auto-rows: 220px;
+        gap: 20px;
+    }
+
+    .site-logo {
+        font-size: 24px;
+    }
+
+    .flag,
+    .icon,
+    .social a {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* ================== MOBILE (2 колонки, квадраты) ================== */
+@media (max-width: 480px){
+    .container,
+    .site-header__inner,
+    .accordion,
+    .site-footer__inner,
+    .grid {
+        width: 92vw;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+
+        /* без процентов, просто 2 колонки */
+        grid-auto-rows: auto;
+
+        /* высоту дадим через aspect-ratio */
+        gap: 12px;
+        grid-template-areas: "a a"
+      "one two"
+      "three four"
+      "five six"
+      "seven eight";
+    }
+
+    .tile {
+        aspect-ratio: 1 / 1;
+    }
+
+    /* квадраты */
+    .a {
+        grid-column: 1 / -1;
+        aspect-ratio: 1 / 1;
+    }
+
+    .tilt {
+        perspective: 0;
+    }
+
+    /* экономия батареи на мобиле */
+    .flag,
+    .icon,
+    .social a {
+        width: 18px;
+        height: 18px;
+    }
+}

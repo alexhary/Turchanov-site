@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Mosaic + Parallax + Lightbox + Slider</title>
+        <link href="css/theme.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Oswald:200,300,400,500,600,700|Open+Sans:300,400,600,700,800|Ubuntu+Condensed">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="site-header__inner">
+                <div class="site-logo">AT<span class="accent">DESIGN</span> 
+                </div>
+                <div class="site-actions">
+                    <img class="flag" src="images/_en.svg" alt="English" data-lang="en">
+                    <img class="flag" src="images/_es.svg" alt="Español" data-lang="es">
+                    <img class="flag" src="images/_rus.svg" alt="Русский" data-lang="ru">
+                    <span class="site-divider"></span>
+                    <img class="icon" src="images/contact.svg" alt="Request a project" data-contact>
+                </div>
+            </div>
+        </header>
+        <section class="accordion" id="acc">
+            <div class="accordion__inner">
+                <div id="panel-lang" class="panel" aria-hidden="true">
+                    <h3 id="lang-title">Turchanov Design</h3>
+                    <p id="lang-body">Multidisciplinary studio…</p>
+                </div>
+                <div id="panel-contact" class="panel" aria-hidden="true">
+                    <h3>Request a project</h3>
+                    <form class="form" onsubmit="event.preventDefault(); alert('Demo: submit later');">
+                        <div class="field">
+                            <label class="label" for="rq-name">Your name</label>
+                            <input class="input" id="rq-name" required>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="rq-email">Email</label>
+                            <input class="input" type="email" id="rq-email" required>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="rq-type">Project type</label>
+                            <select class="select" id="rq-type" required>
+                                <option value="" selected disabled>Select…</option>
+                                <option>Interiors</option>
+                                <option>Architectural</option>
+                                <option>Sculpture</option>
+                                <option>Motion</option>
+                                <option>Web</option>
+                                <option>3D / Prototyping</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="rq-msg">Message</label>
+                            <textarea class="textarea" id="rq-msg" placeholder="Timeline, size, budget range…"></textarea>
+                        </div>
+                        <button class="btn" type="submit">Send request</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <main class="stage">
+            <section class="grid" aria-label="Mosaic with parallax & lightbox">
+                <div class="tile a">
+                    <div class="slider" data-delay="3000">
+                        <button class="s-btn s-prev" aria-label="Prev">
+                            <img src="images/arrow-L.svg" alt="">
+                        </button>
+                        <button class="s-btn s-next" aria-label="Next">
+                            <img src="images/arrow-L.svg" alt="">
+                        </button>
+                        <div class="slides">
+                            <div class="slide">
+                                <img src="images/Tales-Intro.svg" alt="">
+                            </div>
+                            <div class="slide">
+                                <img src="images/metabal-slider.jpg" alt="">
+                            </div>
+                            <div class="slide">
+                                <img src="images/eyes-slider.jpg" alt="">
+                            </div>
+                            <div class="slide">
+                                <img src="images/lattices-1.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tiles 1–8 -->
+                <div class="tile one">
+                    <div class="tilt lb" data-album="1" data-count="4" data-captions="1-1 | 1-2 | 1-3 | 1-4">
+                        <div class="layer" data-depth="0">
+                            <img src="images/icon_Bubbles_Alex-hary-design.webp" alt="">
+                        </div>
+                        <div class="layer" data-depth="4">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer text" data-depth="4">
+                            <div class="caption">INTERIOR</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile two">
+                    <div class="tilt lb" data-album="2" data-count="4" data-captions="2-1 | 2-2 | 2-3 | 2-4">
+                        <div class="layer" data-depth="0">
+                            <img src="images/lattices-2.jpg" alt="">
+                        </div>
+                        <div class="layer" data-depth="0.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="1">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="1.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="2">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="2.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="3">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="3.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="4">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer text" data-depth="4">
+                            <div class="caption">ARCHITECTURAL</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile three">
+                    <div class="tilt lb" data-album="3" data-count="4" data-captions="3-1 | 3-2 | 3-3 | 3-4">
+                        <div class="layer" data-depth="0">
+                            <img src="images/Things-anim-grey.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="0.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="1">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="1.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="2">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="2.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="3">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="3.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="4">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer text" data-depth="4">
+                            <div class="caption">MOVIES</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile four">
+                    <div class="tilt lb" data-album="4" data-count="4" data-captions="hddfgdfg 4-1 | 4-2 | 4-3 | 4-4">
+                        <div class="layer" data-depth="0">
+                            <img src="images/icon_Leda_Alex-hary-sculpture.webp" alt="">
+                        </div>
+                        <div class="layer" data-depth="2">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer text" data-depth="2">
+                            <div class="caption">SCULPTURE</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile five">
+                    <div class="tilt lb" data-album="5" data-count="4" data-captions="5-1 | 5-2 | 5-3 | 5-4">
+                        <div class="layer" data-depth="0">
+                            <img src="images/tiles-icon.jpg" alt="">
+                        </div>
+                        <div class="layer" data-depth="0.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="1">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="1.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="2">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="2.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="3">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="3.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="4">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer text" data-depth="4">
+                            <div class="caption">TILES STUDIO</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile six">
+                    <div class="tilt lb" data-album="6" data-count="4" data-captions="6-1 | 6-2 | 6-3 | 6-4">
+                        <div class="layer" data-depth="0">
+                            <img src="images/3D-Print-icon.jpg" alt="">
+                        </div>
+                        <div class="layer" data-depth="0.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="1">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="1.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="2">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="2.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="3">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="3.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="4">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer text" data-depth="4">
+                            <div class="caption">3D Print</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile seven">
+                    <div class="tilt lb" data-album="7" data-count="4" data-captions="7-1 | 7-2 | 7-3 | 7-4">
+                        <div class="layer" data-depth="0">
+                            <img src="images/furniture1.jpg" alt="">
+                        </div>
+                        <div class="layer" data-depth="0.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="1">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="1.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="2">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="2.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="3">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="3.5">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer" data-depth="4">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer text" data-depth="4">
+                            <div class="caption">EFIMERA</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tile eight">
+                    <div class="tilt lb" data-album="8" data-count="4" data-captions="8-1 | 8-2 | 8-3 | 8-4">
+                        <div class="layer" data-depth="0">
+                            <img src="images/web.jpg" alt="">
+                        </div>
+                        <div class="layer" data-depth="4">
+                            <img src="images/grid.svg" alt="">
+                        </div>
+                        <div class="layer text" data-depth="4">
+                            <div class="caption">WEB & Branding</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <div>webdesign: turchanov.com</div>
+                <nav class="social" aria-label="social links"><a href="#" aria-label="LinkedIn"><img src="images/social_linkedin.svg" alt=""></a><a href="#" aria-label="Facebook"><img src="images/social_facebook.svg" alt=""></a><a href="#" aria-label="Instagram"><img src="images/social_instagram.svg" alt=""></a>
+                </nav>
+            </div>
+        </footer>
+        <script src="app.js"></script>
+    </body>
+</html>
