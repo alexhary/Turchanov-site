@@ -1,0 +1,45 @@
+Сайт будет доступен по 
+https://alexhary.github.io/Turchanov-site 
+(проверь через 1–5 минут).
+
+https://turchanov-site.vercel.app/
+
+
+D:
+cd D:\SITES\TURCHANOV.COM
+git init
+git add .
+git commit -m "Добавлены файлы сайта"
+git remote add origin https://github.com/alexhary/Turchanov-site.git
+git branch -M main
+git push -u origin main
+
+
+
+git add .
+git commit -m "Добавлены файлы сайта"
+git push -u origin main
+
+
+git push -u origin main
+
+--------------------------------------------
+
+------------------------------------------------
+
+git config --global user.name "alexhary"
+git config --global user.email "alexhary@example.com"
+
+
+---------------------------------------
+
+то делать дальше
+
+Проверь репозиторий:
+texthttps://github.com/alexhary/Turchanov-site
+Убедись, что все файлы (app.js, index.html, styles.css, images и т.д.) там.
+Настрой GitHub Pages (если хочешь хостинг):
+
+Зайди в Settings > Pages на GitHub.
+Выбери Source: main, папку / (root), нажми Save.
+Сайт будет доступен по https://alexhary.github.io/Turchanov-site (проверь через 1–5 минут).

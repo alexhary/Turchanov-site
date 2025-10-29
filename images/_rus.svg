@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Creator: CorelDRAW 2019 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="12.551mm" height="12.551mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 30.38 30.38"
- xmlns:xlink="http://www.w3.org/1999/xlink">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="15.875mm" height="15.875mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 44.02 44.02"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
  <defs>
   <style type="text/css">
    <![CDATA[
-    .fil2 {fill:#004677}
-    .fil1 {fill:#D12416}
-    .fil0 {fill:white}
+    .fil3 {fill:none}
+    .fil1 {fill:#004677}
+    .fil0 {fill:#D12416}
+    .fil2 {fill:white}
    ]]>
   </style>
  </defs>
  <g id="Layer_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <g id="_2357838351536">
-   <path class="fil0" d="M15.19 0c8.39,0 15.19,6.8 15.19,15.19 0,8.39 -6.8,15.19 -15.19,15.19 -8.39,0 -15.19,-6.8 -15.19,-15.19 0,-8.39 6.8,-15.19 15.19,-15.19z"/>
-   <path class="fil1" d="M15.96 30.36l-1.54 0c-6.28,-0.31 -11.56,-4.45 -13.56,-10.13l28.66 0c-2,5.68 -7.28,9.81 -13.56,10.13z"/>
-   <path class="fil2" d="M29.51 10.13l-28.64 0c-0.56,1.58 -0.87,3.29 -0.87,5.06 0,1.78 0.31,3.48 0.87,5.06l28.64 0c0.56,-1.58 0.87,-3.29 0.87,-5.06 0,-1.78 -0.31,-3.48 -0.87,-5.06z"/>
-   <path class="fil0" d="M29.51 10.13l-28.64 0c2.08,-5.9 7.71,-10.13 14.32,-10.13 6.61,0 12.24,4.23 14.32,10.13z"/>
+  <g id="_2602259442400">
+   <g>
+    <path class="fil0" d="M22.89 39.4l-1.76 0c-7.19,-0.36 -13.24,-5.1 -15.53,-11.6l32.83 0c-2.29,6.51 -8.34,11.24 -15.53,11.6z"/>
+    <path class="fil1" d="M38.41 16.22l-32.81 0c-0.64,1.81 -1,3.77 -1,5.8 0,2.04 0.36,3.99 1,5.8l32.81 0c0.64,-1.81 1,-3.77 1,-5.8 0,-2.04 -0.36,-3.99 -1,-5.8z"/>
+    <path class="fil2" d="M38.41 16.22l-32.81 0c2.38,-6.76 8.83,-11.6 16.4,-11.6 7.57,0 14.02,4.85 16.4,11.6l0 0 -0 0z"/>
+   </g>
+   <rect class="fil3" width="44.02" height="44.02"/>
   </g>
  </g>
 </svg>

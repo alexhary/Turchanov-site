@@ -19,9 +19,9 @@ img {
 .accordion,
 .site-footer__inner,
 .grid {
-    width: 1008px;
+    width: 948px;
 
-    /* 3 колонки по 320 + 2 промежутка по 24 = 1008 */
+    /* 3 колонки по 300 + 2 промежутка по 24 = 948px */
     max-width: 92vw;
 
     /* осторожное сжатие на узких экранах */
@@ -30,8 +30,8 @@ img {
 
 /* ================== HEADER ================== */
 .site-header {
-    background: #1a1a1a;
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    background: #1a1a1a00;
+    border-bottom: 0px solid rgba(255,255,255,.08);
 }
 
 .site-header__inner {
@@ -55,14 +55,14 @@ img {
 .site-actions {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
 }
 
 .flag,
 .icon,
 .social a {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
     display: grid;
     place-items: center;
     cursor: pointer;
@@ -78,7 +78,7 @@ img {
 }
 
 .site-divider {
-    width: 1px;
+    r: 1px;
     height: 18px;
     background: rgba(255,255,255,.12);
 }
@@ -91,9 +91,8 @@ img {
 }
 
 .accordion__inner {
-    padding: 14px 0;
-    background: #121212;
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding: 22px 14px 0 22px;
+    border-bottom: 0px solid rgba(255,255,255,.08);
 }
 
 .panel {
@@ -147,15 +146,15 @@ img {
 .btn {
     margin-top: 12px;
     background: transparent;
-    color: #eee;
-    border: 2px solid #bfbfbf;
+    color: rgb(173, 173, 173);
+    border: 2px solid #6b6a6a;
     padding: 10px 16px;
     border-radius: 8px;
     cursor: pointer;
 }
 
 .btn:hover {
-    border-color: #fff;
+    border-color: rgba(170, 169, 169, 0.281);
 }
 
 /* ================== FOOTER ================== */
@@ -189,10 +188,10 @@ img {
 
 .grid {
     display: grid;
-    grid-template-columns: 320px 320px 320px;
+    grid-template-columns: 300px 300px 300px;
 
     /* фиксировано */
-    grid-auto-rows: 320px;
+    grid-auto-rows: 300px;
 
     /* квадраты */
     gap: 24px;
@@ -411,28 +410,26 @@ img {
     top: 50%;
     transform: translateY(-50%);
     border: 0;
-    background: rgba(0,0,0,.45);
+    background: rgba(0, 0, 0, 0);
     color: #fff;
     cursor: pointer;
     z-index: 2;
-    width: 44px;
-    height: 44px;
     border-radius: 10px;
     display: grid;
     place-items: center;
 }
 
 .s-btn img {
-    width: 26px;
-    height: 26px;
+    width: 44px;
+    height: 44px;
 }
 
 .s-prev {
-    left: .25rem;
+    left: .35rem;
 }
 
 .s-next {
-    right: .25rem;
+    right: .35rem;
 }
 
 .s-next img {
@@ -513,7 +510,7 @@ img {
     .flag,
     .icon,
     .social a {
-        width: 18px;
-        height: 18px;
+        width: 24px;
+        height: 24px;
     }
 }

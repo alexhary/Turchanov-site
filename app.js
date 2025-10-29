@@ -1,12 +1,12 @@
 
 /* ===================== i18n ===================== */
 const I18N = {
-  en: { title: "Turchanov Design",
-        body: `We create interiors, architectural objects, sculpture, motion graphics, web and 3D. Full-cycle studio: concept → design → production.` },
-  es: { title: "Turchanov Design",
-        body: `Creamos interiores, objetos arquitectónicos, escultura, motion graphics, web y 3D. Estudio de ciclo completo: concepto → diseño → producción.` },
-  ru: { title: "Turchanov Design",
-        body: `Делаем интерьеры, архитектурные объекты, скульптуру, motion-графику, веб и 3D. Полный цикл: концепция → дизайн → производство.` }
+  en: { title: "Aleksey Turchanov Design",
+        body: `A multidisciplinary studio working across interiors, architectural objects, sculpture, audiovisual projects and projection mapping, web and 3D design. We develop concepts that unite form, light and material — from ephemeral architecture and spatial decoration to bespoke furniture design. Full-cycle approach: concept → design → production.` },
+  es: { title: "Aleksey Turchanov Design",
+        body: `Estudio multidisciplinar que trabaja en interiores, objetos arquitectónicos, escultura, proyectos audiovisuales y videomapping, diseño web y 3D. Desarrollamos conceptos que unen forma, luz y materia — desde la arquitectura efímera y la decoración espacial hasta el diseño de mobiliario a medida. Enfoque de ciclo completo: concepto → diseño → producción.` },
+  ru: { title: "Aleksey Turchanov Design",
+        body: `Междисциплинарная студия, работающая в области интерьеров, архитектурных объектов, скульптуры, аудиовизуальных проектов и проекционного мэппинга, веба и 3D-дизайна. Мы разрабатываем концепции, объединяющие форму, свет и материал — от архитектуры эфемера и декорации пространств до индивидуального дизайна мебели. Полный цикл: концепция → дизайн → производство.` }
 };
 
 /* ===================== Аккордеон ===================== */
@@ -62,11 +62,11 @@ document.querySelectorAll('[data-contact]').forEach(btn => btn.addEventListener(
 
 /* ===================== Parallax ===================== */
 (function(){
-  const MAX_TILT = 50;     // насколько сильно наклоняем
+  const MAX_TILT = 25;     // насколько сильно наклоняем
   const LERP_ROT = 0.12;   // сглаживание поворота
   const LERP_SCL = 0.08;   // сглаживание масштаба (чем меньше, тем плавней)
   const PAR      = 0.35;   // разлёт слоёв
-  const SCALE_IN = 0.8;   // целевой scale при наведении/движении
+  const SCALE_IN = 0.9;   // целевой scale при наведении/движении
   const SCALE_OUT= 1.00;   // целевой scale при выходе
 
   document.querySelectorAll('.tilt').forEach(root=>{
@@ -116,14 +116,23 @@ document.querySelectorAll('[data-contact]').forEach(btn => btn.addEventListener(
 
 /* ===================== Lightbox ===================== */
 (function(){
-  const ARROW_SRC = 'svg/arrow-L.svg';
+  const ARROW_SRC = 'images/arrow-L.svg';
   function build(node){
-    const n = node.getAttribute('data-album');
-    const k = +node.getAttribute('data-count') || 0;
-    const base = node.getAttribute('data-base') || 'images';
-    const ext  = node.getAttribute('data-ext')  || 'jpg';
-    const items=[]; for(let i=1;i<=k;i++) items.push(`${base}/${n}_${i}.${ext}`);
-    const captions = (node.getAttribute('data-captions')||'').split('|').map(s=>s.trim()).filter(Boolean);
+    // New: explicit file list via data-files="a.jpg | b.webp | c.png"
+    const rawFiles = (node.getAttribute('data-files') || '').trim();
+    let items = [];
+    if (rawFiles) {
+      items = rawFiles.split('|').map(s => s.trim()).filter(Boolean);
+    } else {
+      // Fallback: old scheme data-album + data-count (+ base/ext)
+      const n = node.getAttribute('data-album');
+      const k = +node.getAttribute('data-count') || 0;
+      const base = node.getAttribute('data-base') || 'images';
+      const ext  = node.getAttribute('data-ext')  || 'jpg';
+      for (let i = 1; i <= k; i++) items.push(`${base}/${n}_${i}.${ext}`);
+    }
+    const captions = (node.getAttribute('data-captions')||'')
+      .split('|').map(s=>s.trim()).filter(Boolean);
     return {items, captions};
   }
   function open(items, captions=[], start=0){
