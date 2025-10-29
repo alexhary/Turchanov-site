@@ -1,12 +1,34 @@
 
 /* ===================== i18n ===================== */
 const I18N = {
-  en: { title: "Aleksey Turchanov Design",
-        body: `A multidisciplinary studio working across interiors, architectural objects, sculpture, audiovisual projects and projection mapping, web and 3D design. We develop concepts that unite form, light and material — from ephemeral architecture and spatial decoration to bespoke furniture design. Full-cycle approach: concept → design → production.` },
-  es: { title: "Aleksey Turchanov Design",
-        body: `Estudio multidisciplinar que trabaja en interiores, objetos arquitectónicos, escultura, proyectos audiovisuales y videomapping, diseño web y 3D. Desarrollamos conceptos que unen forma, luz y materia — desde la arquitectura efímera y la decoración espacial hasta el diseño de mobiliario a medida. Enfoque de ciclo completo: concepto → diseño → producción.` },
-  ru: { title: "Aleksey Turchanov Design",
-        body: `Междисциплинарная студия, работающая в области интерьеров, архитектурных объектов, скульптуры, аудиовизуальных проектов и проекционного мэппинга, веба и 3D-дизайна. Мы разрабатываем концепции, объединяющие форму, свет и материал — от архитектуры эфемера и декорации пространств до индивидуального дизайна мебели. Полный цикл: концепция → дизайн → производство.` }
+  en: {
+    title: "Aleksey Turchanov",
+    subtitle: "Spatial Design • Digital Production • Art-driven Installations",
+    body: `Designing forms where art meets architecture.
+
+A multidisciplinary designer working across ephemeral architecture, installations, interior objects and digital visual production.
+Developing concepts that unite form, light and material, transforming them into sculptural spaces for brands, exhibitions and cultural projects.
+
+Based in Barcelona, I create spatial and digital experiences — from concept and design to fabrication-ready solutions and visual presentation.`
+  },
+
+  es: {
+    title: "Aleksey Turchanov",
+    subtitle: "Diseño Espacial • Producción Digital • Instalaciones Artísticas",
+    body: `Diseñador multidisciplinar que trabaja en arquitectura efímera, instalaciones, objetos interiores y producción visual digital.
+Desarrolla conceptos que unen forma, luz y materia, transformándolos en espacios escultóricos para marcas, exposiciones y proyectos culturales.
+
+Con base en Barcelona, crea experiencias espaciales y digitales — desde el concepto y el diseño hasta soluciones listas para fabricación y presentación visual.`
+  },
+
+  ru: {
+    title: "Алексей Турчанов",
+    subtitle: "Дизайн пространств • Цифровая продукция • Художественные инсталляции",
+    body: `Междисциплинарный дизайнер, работающий в области архитектуры эфемера, инсталляций, интерьерных объектов и цифрового визуального дизайна.
+Создаёт концепции, объединяющие форму, свет и материю, превращая их в скульптурные пространства для брендов, выставок и культурных проектов.
+
+Базируется в Барселоне. Создаёт пространственные и цифровые опыты — от идеи и дизайна до решений, готовых к производству и презентации.`
+  }
 };
 
 /* ===================== Аккордеон ===================== */

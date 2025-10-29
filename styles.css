@@ -513,44 +513,24 @@ img {
         width: 24px;
         height: 24px;
     }
-
-    .tilt.link {
-        display: block;
-        position: relative;
-
-        /* добавлено */
-        width: 100%;
-        height: 100%;
-        text-decoration: none;
-        color: inherit;
-        overflow: visible;
-    }
-
-    .tilt.link .layer {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-    }
-
-    .tilt.link .layer.text {
-        pointer-events: auto;
-    }
-
-    /* clickable layer only for the audiovisual tile */
-    .tile.three .layer.clickable {
-        pointer-events: auto;
-    }
-
-    .tile.three .layer.clickable a {
-        position: absolute;
-        inset: 0;
-
-        /* растянуть ссылку на всю плитку */
-        display: block;
-    }
-
-    /* чтобы подпись не перекрывала клик */
-    .tile.three .layer.text {
-        pointer-events: none;
-    }
 }
+
+/* ================== OVERRIDES: AUDIOVISUAL (YouTube link) ================== */
+/* Кликом делаем первый слой плитки three; сохраняем parallax и внешний вид */
+.tile.three .layer[data-depth="0"] {
+    pointer-events: auto;
+}
+
+.tile.three .layer[data-depth="0"] a {
+    position: absolute;
+    inset: 0;
+
+    /* ссылка на весь блок */
+    display: block;
+}
+
+.tile.three .layer.text {
+    pointer-events: none;
+}
+
+/* подпись не перехватывает клик */
