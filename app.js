@@ -1,58 +1,70 @@
-/* ===================== Accordion + language (HTML-based, toggle) ===================== */
+/* ===================== Accordion + language (HTML-based, toggle, smooth close) ===================== */
 const acc       = document.getElementById('acc');
 const pContact  = document.getElementById('panel-contact');
 let openPane    = null;   // 'lang:en' | 'lang:es' | 'lang:ru' | 'contact' | null
 
-function setAccordionHeightBy(el){
-  if(!el){ acc.style.maxHeight = '0px'; return; }
-  acc.style.maxHeight = '0px';
-  requestAnimationFrame(()=> acc.style.maxHeight = el.scrollHeight + 'px');
-}
-
 function hideAllPanels(){
   document.querySelectorAll('.lang-block').forEach(b => b.setAttribute('aria-hidden','true'));
-  pContact.setAttribute('aria-hidden','true');
+  if (pContact) pContact.setAttribute('aria-hidden','true');
+}
+
+function openPanel(panel){
+  if(!panel || !acc) return;
+  panel.setAttribute('aria-hidden','false');
+  acc.style.maxHeight = '0px';
+  requestAnimationFrame(()=>{
+    acc.style.maxHeight = panel.scrollHeight + 'px';
+  });
+}
+
+function closeAccordion(){
+  if(!acc) return;
+  const current = acc.scrollHeight;
+  acc.style.maxHeight = current + 'px'; // start from current height
+  void acc.offsetHeight;                // force reflow
+  requestAnimationFrame(()=>{
+    acc.style.maxHeight = '0px';
+  });
 }
 
 function openLang(lang){
   const key = `lang:${lang}`;
   if (openPane === key){
-    // toggle close
     hideAllPanels();
+    closeAccordion();
     openPane = null;
-    setAccordionHeightBy(null);
     return;
   }
   hideAllPanels();
   const panel = document.getElementById(`panel-${lang}`);
   if(panel){
-    panel.setAttribute('aria-hidden','false');
     openPane = key;
-    setAccordionHeightBy(panel);
+    openPanel(panel);
   }
 }
 
 function toggleContact(){
   if (openPane === 'contact'){
     hideAllPanels();
+    closeAccordion();
     openPane = null;
-    setAccordionHeightBy(null);
     return;
   }
   hideAllPanels();
-  pContact.setAttribute('aria-hidden','false');
-  openPane = 'contact';
-  setAccordionHeightBy(pContact);
+  if (pContact){
+    openPane = 'contact';
+    openPanel(pContact);
+  }
 }
 
 // Bind flags & contact
 document.querySelectorAll('.flag').forEach(f => f.addEventListener('click', () => openLang(f.dataset.lang)));
 document.querySelectorAll('[data-contact]').forEach(btn => btn.addEventListener('click', toggleContact));
 
-// On load: keep accordion closed
+// Keep accordion closed on load
 document.addEventListener('DOMContentLoaded', () => {
   hideAllPanels();
-  setAccordionHeightBy(null);
+  if (acc) acc.style.maxHeight = '0px';
   openPane = null;
 });
 
@@ -140,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const img=overlay.querySelector('.lb-img');
     const count=overlay.querySelector('.lb-count');
     const desc=overlay.querySelector('.lb-desc');
-    const load=i=>{ idx=(i+items.length)%items.length; img.src=items[idx]; count.textContent=`${idx+1} / ${items.length}`; desc.textContent=captions[idx]||''; };
+    const load=i=>{ idx=(i+items.length)%items.length; img.src=items[idx]; count.textContent=''; desc.textContent=captions[idx]||''; };
     const cleanup=()=>{ document.body.style.overflow=''; overlay.remove(); document.removeEventListener('keydown',onKey); };
     const onKey=e=>{ if(e.key==='Escape')cleanup(); if(e.key==='ArrowLeft')load(idx-1); if(e.key==='ArrowRight')load(idx+1); };
     overlay.addEventListener('click',e=>{ if(e.target===overlay) cleanup(); });
