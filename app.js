@@ -1,95 +1,69 @@
-
-/* ===================== i18n ===================== */
-const I18N = {
-  en: {
-    title: "Aleksey Turchanov",
-    subtitle: "Spatial Design • Digital Production • Art-driven Installations",
-    body: `Designing forms where art meets architecture.
-
-A multidisciplinary designer working across ephemeral architecture, installations, interior objects and digital visual production.
-Developing concepts that unite form, light and material, transforming them into sculptural spaces for brands, exhibitions and cultural projects.
-
-Based in Barcelona, I create spatial and digital experiences — from concept and design to fabrication-ready solutions and visual presentation.`
-  },
-
-  es: {
-    title: "Aleksey Turchanov",
-    subtitle: "Diseño Espacial • Producción Digital • Instalaciones Artísticas",
-    body: `Diseñador multidisciplinar que trabaja en arquitectura efímera, instalaciones, objetos interiores y producción visual digital.
-Desarrolla conceptos que unen forma, luz y materia, transformándolos en espacios escultóricos para marcas, exposiciones y proyectos culturales.
-
-Con base en Barcelona, crea experiencias espaciales y digitales — desde el concepto y el diseño hasta soluciones listas para fabricación y presentación visual.`
-  },
-
-  ru: {
-    title: "Алексей Турчанов",
-    subtitle: "Дизайн пространств • Цифровая продукция • Художественные инсталляции",
-    body: `Междисциплинарный дизайнер, работающий в области архитектуры эфемера, инсталляций, интерьерных объектов и цифрового визуального дизайна.
-Создаёт концепции, объединяющие форму, свет и материю, превращая их в скульптурные пространства для брендов, выставок и культурных проектов.
-
-Базируется в Барселоне. Создаёт пространственные и цифровые опыты — от идеи и дизайна до решений, готовых к производству и презентации.`
-  }
-};
-
-/* ===================== Аккордеон ===================== */
+/* ===================== Accordion + language (HTML-based, toggle) ===================== */
 const acc       = document.getElementById('acc');
-const pLang     = document.getElementById('panel-lang');
 const pContact  = document.getElementById('panel-contact');
-let openPane    = null;
+let openPane    = null;   // 'lang:en' | 'lang:es' | 'lang:ru' | 'contact' | null
 
-function setAccordionHeight(open){
-  if(open){
-    acc.style.maxHeight = '0px';
-    requestAnimationFrame(()=> acc.style.maxHeight = acc.scrollHeight + 'px');
-  }else{
-    acc.style.maxHeight = acc.scrollHeight + 'px';
-    requestAnimationFrame(()=> acc.style.maxHeight = '0px');
-  }
+function setAccordionHeightBy(el){
+  if(!el){ acc.style.maxHeight = '0px'; return; }
+  acc.style.maxHeight = '0px';
+  requestAnimationFrame(()=> acc.style.maxHeight = el.scrollHeight + 'px');
 }
 
-function showLang(lang){
-  document.getElementById('lang-title').textContent = I18N[lang].title;
-  document.getElementById('lang-body').textContent  = I18N[lang].body;
+function hideAllPanels(){
+  document.querySelectorAll('.lang-block').forEach(b => b.setAttribute('aria-hidden','true'));
   pContact.setAttribute('aria-hidden','true');
-  pLang.setAttribute('aria-hidden','false');
 }
 
 function openLang(lang){
-  const willClose = (openPane === 'lang' && acc.style.maxHeight !== '0px');
-  if(willClose){
-    openPane = null; setAccordionHeight(false);
-    setTimeout(()=> pLang.setAttribute('aria-hidden','true'), 350);
+  const key = `lang:${lang}`;
+  if (openPane === key){
+    // toggle close
+    hideAllPanels();
+    openPane = null;
+    setAccordionHeightBy(null);
     return;
   }
-  showLang(lang);
-  setAccordionHeight(true);
-  openPane = 'lang';
+  hideAllPanels();
+  const panel = document.getElementById(`panel-${lang}`);
+  if(panel){
+    panel.setAttribute('aria-hidden','false');
+    openPane = key;
+    setAccordionHeightBy(panel);
+  }
 }
 
-function openContact(){
-  const willClose = (openPane === 'contact' && acc.style.maxHeight !== '0px');
-  if(willClose){
-    openPane = null; setAccordionHeight(false);
-    setTimeout(()=> pContact.setAttribute('aria-hidden','true'), 350);
+function toggleContact(){
+  if (openPane === 'contact'){
+    hideAllPanels();
+    openPane = null;
+    setAccordionHeightBy(null);
     return;
   }
-  pLang.setAttribute('aria-hidden','true');
+  hideAllPanels();
   pContact.setAttribute('aria-hidden','false');
-  setAccordionHeight(true);
   openPane = 'contact';
+  setAccordionHeightBy(pContact);
 }
 
+// Bind flags & contact
 document.querySelectorAll('.flag').forEach(f => f.addEventListener('click', () => openLang(f.dataset.lang)));
-document.querySelectorAll('[data-contact]').forEach(btn => btn.addEventListener('click', openContact));
+document.querySelectorAll('[data-contact]').forEach(btn => btn.addEventListener('click', toggleContact));
+
+// On load: keep accordion closed
+document.addEventListener('DOMContentLoaded', () => {
+  hideAllPanels();
+  setAccordionHeightBy(null);
+  openPane = null;
+});
 
 /* ===================== Parallax ===================== */
 (function(){
-  const MAX_TILT = 25;     // насколько сильно наклоняем
-  const LERP_ROT = 0.12;   // сглаживание поворота
-  const LERP_SCL = 0.08;   // сглаживание масштаба (чем меньше, тем плавней)
-  const PAR      = 0.35;   // разлёт слоёв
-  const SCALE_IN = 0.9;   // целевой scale при наведении/движении
-  const SCALE_OUT= 1.00;   // целевой scale при выходе
+  const MAX_TILT = 25;
+  const LERP_ROT = 0.12;
+  const LERP_SCL = 0.08;
+  const PAR      = 0.35;
+  const SCALE_IN = 0.9;
+  const SCALE_OUT= 1.00;
 
   document.querySelectorAll('.tilt').forEach(root=>{
     const st = { rx:0, ry:0, tRx:0, tRy:0, s:SCALE_OUT, tS:SCALE_OUT };
@@ -102,13 +76,10 @@ document.querySelectorAll('[data-contact]').forEach(btn => btn.addEventListener(
       const ny = (p.clientY - (r.top  + r.height/2)) / (r.height/2);
       st.tRy =  MAX_TILT * nx;
       st.tRx = -MAX_TILT * ny;
-      st.tS  = SCALE_IN;            // <-- вместо мгновенного scale ставим целевой
+      st.tS  = SCALE_IN;
     };
 
-    const onLeave = ()=>{
-      st.tRx = st.tRy = 0;
-      st.tS  = SCALE_OUT;           // <-- целевой scale при выходе
-    };
+    const onLeave = ()=>{ st.tRx = st.tRy = 0; st.tS  = SCALE_OUT; };
 
     root.addEventListener('mousemove', onMove, {passive:true});
     root.addEventListener('touchmove', onMove, {passive:true});
@@ -117,7 +88,6 @@ document.querySelectorAll('[data-contact]').forEach(btn => btn.addEventListener(
     root.addEventListener('touchcancel', onLeave);
 
     (function tick(){
-      // Плавно тянем текущие значения к целевым
       st.rx += (st.tRx - st.rx) * LERP_ROT;
       st.ry += (st.tRy - st.ry) * LERP_ROT;
       st.s  += (st.tS  - st.s ) * LERP_SCL;
@@ -135,18 +105,15 @@ document.querySelectorAll('[data-contact]').forEach(btn => btn.addEventListener(
   });
 })();
 
-
 /* ===================== Lightbox ===================== */
 (function(){
   const ARROW_SRC = 'images/arrow-L.svg';
   function build(node){
-    // New: explicit file list via data-files="a.jpg | b.webp | c.png"
     const rawFiles = (node.getAttribute('data-files') || '').trim();
     let items = [];
     if (rawFiles) {
       items = rawFiles.split('|').map(s => s.trim()).filter(Boolean);
     } else {
-      // Fallback: old scheme data-album + data-count (+ base/ext)
       const n = node.getAttribute('data-album');
       const k = +node.getAttribute('data-count') || 0;
       const base = node.getAttribute('data-base') || 'images';
@@ -184,7 +151,10 @@ document.querySelectorAll('[data-contact]').forEach(btn => btn.addEventListener(
     document.body.style.overflow='hidden'; load(idx);
   }
   document.querySelectorAll('.lb').forEach(node=>{
-    node.addEventListener('click',e=>{ if((e.target.closest('.caption'))) return; const {items,captions}=build(node); open(items,captions,0); });
+    node.addEventListener('click',e=>{
+      if((e.target.closest('.caption'))) return;
+      const {items,captions}=build(node); open(items,captions,0);
+    });
   });
 })();
 
