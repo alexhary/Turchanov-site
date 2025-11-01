@@ -181,10 +181,8 @@ img {
 
 /* ================== FOOTER ================== */
 .site-footer {
-    border-top: 0px solid rgba(255,255,255,.08);
+    border-top: 1px solid rgba(255,255,255,.08);
     background: #141414;
-    border-left-color: rgba(0, 0, 0, 0.92);
-    background-color: rgba(0, 0, 0, 0);
 }
 
 .site-footer__inner {
@@ -537,19 +535,3 @@ img {
 .tile .layer.text {
     pointer-events: none;
 }
-
-/* ==== Social icons: grayscale default + color on hover ==== */
-.social a img {
-    filter: grayscale(100%) brightness(0.8);
-    opacity: 0.8;
-    transition: filter .3s ease, opacity .3s ease;
-}
-
-.social a:hover img {
-    filter: grayscale(0%) brightness(1);
-    opacity: 1;
-}
-
-/* === Enhanced button visibility === */
-.btn { background:#202020; color:#e5e5e5; border:1px solid #888; transition:all .25s; }
-.btn:hover { background:#4aa0d6; border-color:#4aa0d6; color:#fff; }
