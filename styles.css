@@ -550,9 +550,3 @@ img {
     filter: grayscale(0%) brightness(1);
     opacity: 1;
 }
-
-/* Ensure accordion above grid */
-.accordion{position:relative;z-index:10}
-
-/* status above button */
-.form-status{margin:8px 0 10px;min-height:1.2em;color:#9aa3aa;transition:opacity .3s ease;}
