@@ -192,3 +192,32 @@ document.addEventListener('DOMContentLoaded', () => {
   root.addEventListener('mouseenter',stop); root.addEventListener('mouseleave',start);
   go(0); start();
 })();
+
+
+/* === AJAX submit for Web3Forms === */
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('rq-form');
+  if (!form) return;
+  const statusEl = document.getElementById('rq-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form.website && form.website.value.trim()) return; // honeypot
+    if (statusEl) statusEl.textContent = 'Sending…';
+    if (submitBtn) submitBtn.disabled = true;
+    try {
+      const fd = new FormData(form);
+      const resp = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+      const data = await resp.json().catch(()=>({}));
+      if (!resp.ok || data.success === false) throw new Error(data.message || 'Request failed');
+      if (statusEl) statusEl.textContent = 'Thanks! Your message was sent.';
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      if (statusEl) statusEl.textContent = 'Error sending. Please try again.';
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+});
