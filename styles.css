@@ -166,7 +166,7 @@ img {
 }
 
 .btn {
-    margin-top: 12px;
+    margin-top: 6px;
     margin-bottom: 56px;
     background: transparent;
     color: #adadad;
@@ -552,15 +552,7 @@ img {
 }
 
 /* Ensure accordion above grid */
-.accordion {
-    position: relative;
-    z-index: 10;
-}
+.accordion{position:relative;z-index:10}
 
-/* Status line above the button */
-.form-status {
-    margin: 8px 0 10px;
-    min-height: 1.2em;
-    color: #9aa3aa;
-    transition: opacity .3s ease;
-}
+/* status above button */
+.form-status{margin:8px 0 10px;min-height:1.2em;color:#9aa3aa;transition:opacity .3s ease;}
