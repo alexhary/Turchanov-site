@@ -550,3 +550,5 @@ img {
     filter: grayscale(0%) brightness(1);
     opacity: 1;
 }
+
+.form-status{margin:8px 0 10px;min-height:1.2em;color:#9aa3aa;transition:opacity .3s ease;}

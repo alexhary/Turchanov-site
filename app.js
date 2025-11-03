@@ -192,3 +192,56 @@ document.addEventListener('DOMContentLoaded', () => {
   root.addEventListener('mouseenter',stop); root.addEventListener('mouseleave',start);
   go(0); start();
 })();
+
+
+/* === AJAX submit for Web3Forms (hard guard: single init + single send, status above button) === */
+(() => {
+  if (window.__rqInit) return;
+  window.__rqInit = true;
+  window.__rqSending = false;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('rq-form');
+    if (!form) return;
+
+    form.removeAttribute('onsubmit');
+    form.removeAttribute('action');
+
+    const statusEl  = document.getElementById('rq-status');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    const remeasure = () => {
+      if (typeof acc !== 'undefined' && acc && typeof pContact !== 'undefined' && pContact) {
+        requestAnimationFrame(() => { acc.style.maxHeight = pContact.scrollHeight + 'px'; });
+      }
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (form.website && form.website.value.trim()) return;
+
+      if (window.__rqSending) return;
+      window.__rqSending = true;
+
+      if (statusEl){ statusEl.style.opacity='1'; statusEl.style.color='#9aa3aa'; statusEl.textContent='Sending…'; remeasure(); }
+      if (submitBtn){ submitBtn.disabled = true; submitBtn.style.pointerEvents='none'; }
+
+      try {
+        const fd = new FormData(form);
+        const resp = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+        const data = await resp.json().catch(()=>({}));
+        if (!resp.ok || data.success === false) throw new Error(data.message || 'Request failed');
+
+        if (statusEl){ statusEl.textContent='Thanks! Your message was sent.'; statusEl.style.color='#8fe48f'; remeasure(); }
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        if (statusEl){ statusEl.textContent='Error sending. Please try again.'; statusEl.style.color='#e88'; remeasure(); }
+      } finally {
+        if (submitBtn){ submitBtn.disabled = false; submitBtn.style.pointerEvents=''; }
+        setTimeout(()=>{ window.__rqSending = false; }, 800);
+      }
+    });
+  });
+})();
