@@ -221,3 +221,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+/* === AJAX submit for Web3Forms (status above button) === */
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('rq-form');
+  if (!form) return;
+  const statusEl  = document.getElementById('rq-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const remeasure = () => {
+    if (typeof acc !== 'undefined' && acc && typeof pContact !== 'undefined' && pContact) {
+      requestAnimationFrame(() => { acc.style.maxHeight = pContact.scrollHeight + 'px'; });
+    }
+  };
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (form.website && form.website.value.trim()) return;
+    if (statusEl){ statusEl.style.opacity='1'; statusEl.style.color='#9aa3aa'; statusEl.textContent='Sending…'; remeasure(); }
+    if (submitBtn) submitBtn.disabled = true;
+    try {
+      const fd = new FormData(form);
+      const resp = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd });
+      const data = await resp.json().catch(()=>({}));
+      if (!resp.ok || data.success === false) throw new Error(data.message || 'Request failed');
+      if (statusEl){ statusEl.textContent='Thanks! Your message was sent.'; statusEl.style.color='#8fe48f'; remeasure(); setTimeout(()=> statusEl.style.opacity='.0', 5000); }
+      form.reset();
+    } catch(err){
+      console.error(err);
+      if (statusEl){ statusEl.textContent='Error sending. Please try again.'; statusEl.style.color='#e88'; remeasure(); }
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+});
