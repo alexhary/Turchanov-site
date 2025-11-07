@@ -1,32 +1,52 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="es">
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <!-- SEO -->
-        <title>Aleksey Turchanov · Spatial Design & Digital Fabrication | Barcelona</title>
-        <meta name="description" content="Aleksey Turchanov — diseñador multidisciplinar especializado en diseño espacial, fabricación digital y arquitectura efímera. Real projects in 3D design, interiors, façades, and commercial spaces. Based in Barcelona."/>
-        <meta name="keywords" content="Aleksey Turchanov, Alex Hary, diseño espacial, spatial design, digital fabrication, fabricación digital, arquitectura efímera, parametric design, arquitectura, interiores, façades, Barcelona, contemporary design, real projects"/>
-        <meta name="author" content="Aleksey Turchanov"/>
+        <!-- SEO (ES) -->
+        <title>Aleksey Turchanov · Diseño Espacial y Fabricación Digital | Barcelona</title>
+        <meta name="description" content="Aleksey Turchanov es un diseñador multidisciplinar con sede en Barcelona, especializado en diseño espacial, fabricación digital y arquitectura efímera. Proyectos para interiores, fachadas, hoteles y espacios comerciales."/>
         <link rel="canonical" href="https://www.turchanov.com/"/>
-        <!--Vercel Analytics -->         
-        <script defer src="/_vercel/insights/script.js"></script>
-        <!-- Hreflang: один URL с несколькими языками на странице -->
-        <link rel="alternate" hreflang="x-default" href="https://www.turchanov.com/"/>
-        <link rel="alternate" hreflang="en" href="https://www.turchanov.com/"/>
+        <!-- Hreflang -->
         <link rel="alternate" hreflang="es" href="https://www.turchanov.com/"/>
-        <link rel="alternate" hreflang="ru" href="https://www.turchanov.com/"/>
-        <!-- Open Graph / Social -->
+        <link rel="alternate" hreflang="en" href="https://www.turchanov.com/index_en.html"/>
+        <link rel="alternate" hreflang="x-default" href="https://www.turchanov.com/"/>
+        <!-- Open Graph -->
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Aleksey Turchanov — Architectural &amp; Digital Design Studio"/>
-        <meta property="og:description" content="Architectural design, ephemeral architecture, sculpture and projection mapping. Based in Barcelona · working worldwide."/>
+        <meta property="og:site_name" content="Aleksey Turchanov"/>
+        <meta property="og:title" content="Aleksey Turchanov · Diseño Espacial y Fabricación Digital"/>
+        <meta property="og:description" content="Diseño espacial, fabricación digital y arquitectura efímera. Con base en Barcelona."/>
         <meta property="og:url" content="https://www.turchanov.com/"/>
         <meta property="og:image" content="https://www.turchanov.com/images/og-preview.png"/>
+        <meta property="og:locale" content="es_ES"/>
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:title" content="Aleksey Turchanov · Diseño Espacial y Fabricación Digital"/>
+        <meta name="twitter:description" content="Diseño espacial, fabricación digital y arquitectura efímera. Con base en Barcelona."/>
+        <meta name="twitter:image" content="https://www.turchanov.com/images/og-preview.png"/>
+        <!-- Structured data -->
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aleksey Turchanov",
+      "jobTitle": "Diseñador espacial",
+      "url": "https://www.turchanov.com/",
+      "image": "https://www.turchanov.com/images/og-preview.png",
+      "address": { "@type": "PostalAddress", "addressLocality": "Barcelona", "addressCountry": "ES" },
+      "sameAs": [
+        "https://www.linkedin.com/in/alexhary/",
+        "https://www.instagram.com/aleksey.turchanov",
+        "https://www.facebook.com/alex.hary"
+      ]
+    }
+    </script>
+        <!-- Analytics -->
+        <script defer src="/_vercel/insights/script.js"></script>
         <!-- Styles -->
+        <link rel="stylesheet" href="styles.css"/>
         <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700|Oswald:200,300,400,500,600,700|Open+Sans:300,400,600,700,800|Ubuntu+Condensed" rel="stylesheet"/>
-        <link rel="stylesheet" href="https://www.turchanov.com/styles.css"/>
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" href="https://www.turchanov.com/images/favicon.png"/>
+        <link rel="icon" type="image/png" href="images/favicon.png"/>
         <meta name="theme-color" content="#0e1320"/>
     </head>
     <body>
@@ -34,87 +54,70 @@
             <div class="site-header__inner">
                 <div class="site-logo">AT<span class="accent">DESIGN</span>
                 </div>
-                <div class="site-actions">
-                    <img alt="English" class="flag" data-lang="en" src="images/_en.svg"/>
-                    <img alt="Español" class="flag" data-lang="es" src="images/_es.svg"/>
-                    <img alt="Русский" class="flag" data-lang="ru" src="images/_rus.svg"/><span class="site-divider"></span>
-                    <img alt="Request a project" class="icon" data-contact="" src="images/contact.svg"/>
+                <div class="site-actions"><a href="index_en.html"><img alt="English" class="flag" src="images/_en.svg"/></a><a href="index.html"><img alt="Español" class="flag" src="images/_es.svg"/></a><span class="site-divider"></span>
+                    <img alt="Solicitar proyecto" class="icon" data-contact src="images/contact.svg"/>
                 </div>
             </div>
         </header>
+        <!-- TEXTO EN ESPAÑOL BAJO EL MENÚ -->
+        <section class="introtext">
+            <div class="introtext__inner">
+                <h3 class="lang-title">Aleksey Turchanov</h3>
+                <h4 class="lang-subtitle">Diseño Espacial · Fabricación Digital · Arquitectura Efímera</h4>
+                <p class="lang-body">
+          Diseñador multidisciplinar especializado en diseño espacial, objetos arquitectónicos y soluciones a medida para interiores, fachadas y arquitectura efímera.
+          Combina diseño paramétrico, modelado 3D y procesos de fabricación digital y tradicional para crear piezas precisas, funcionales y de lenguaje contemporáneo.<br/><br/>
+          Con base en Barcelona, desarrolla proyectos completos — desde el concepto y el diseño hasta la fase de producción y visualización. </p>
+            </div>
+        </section>
+        <!-- ACORDEÓN: SOLO FORMULARIO DE CONTACTO -->
         <section class="accordion" id="acc">
             <div class="accordion__inner">
-                <!-- ===== ES ===== -->
-                <div aria-hidden="true" class="panel lang-block" id="panel-es">
-                    <h3 class="lang-title">Aleksey Turchanov</h3>
-                    <h4 class="lang-subtitle">Diseño Espacial · Fabricación Digital · Arquitectura Efímera</h4>
-                    <p class="lang-body">
-    Diseñador multidisciplinar especializado en desarrollar proyectos espaciales, objetos arquitectónicos y soluciones personalizadas para interiores, fachadas y arquitectura efímera.
-    Combina diseño paramétrico, modelado 3D y procesos de fabricación digital y tradicional para crear piezas precisas, funcionales y de diseño contemporáneo.<br/>
-    Con base en Barcelona, desarrolla proyectos completos — desde el concepto y el diseño hasta la fase de producción y visualización. </p>
-                </div>
-                <!-- ===== EN ===== -->
-                <div aria-hidden="true" class="panel lang-block" id="panel-en">
-                    <h3 class="lang-title">Aleksey Turchanov</h3>
-                    <h4 class="lang-subtitle">Spatial Design · Digital Fabrication · Ephemeral Architecture</h4>
-                    <p class="lang-body">
-    Multidisciplinary designer specialized in developing spatial projects, architectural objects, and custom solutions for interiors, façades, and temporary architecture.
-    Combines parametric design, 3D modeling, and both digital and traditional fabrication processes to create precise, functional, and contemporary design pieces.<br/>
-    Based in Barcelona, he develops complete projects — from concept and design to production and visualization phases. </p>
-                </div>
-                <!-- ===== RU ===== -->
-                <div aria-hidden="true" class="panel lang-block" id="panel-ru">
-                    <h3 class="lang-title">Алексей Турчанов</h3>
-                    <h4 class="lang-subtitle">Пространственный дизайн · Цифровое производство · Эфемерная архитектура</h4>
-                    <p class="lang-body">
-    Многопрофильный дизайнер, специализирующийся на разработке пространственных проектов, архитектурных объектов и индивидуальных решений для интерьеров, фасадов и временной архитектуры.
-    Сочетает параметрическое проектирование, 3D-моделирование и процессы цифрового и традиционного производства, создавая точные, функциональные и современные формы.<br/>
-    Базируется в Барселоне. Реализует проекты полного цикла — от концепции и дизайна до стадии производства и визуализации. </p>
-                </div>
-                <!-- Contact panel -->
                 <div aria-hidden="true" class="panel" id="panel-contact">
-                    <h3>Request a project</h3>
+                    <h3>Solicitar proyecto</h3>
                     <form class="form" id="rq-form" method="POST">
                         <input name="access_key" type="hidden" value="168e3750-6518-4043-a360-29243b2afa46"/>
-                        <input name="subject" type="hidden" value="New request from turchanov.com"/>
+                        <input name="subject" type="hidden" value="Nueva solicitud desde turchanov.com"/>
                         <input aria-hidden="true" autocomplete="off" name="website" style="position:absolute;left:-9999px;" tabindex="-1" type="text"/>
                         <div class="field">
-                            <label class="label" for="rq-name">Your name</label>
-                            <input class="input" id="rq-name" name="name" required=""/>
+                            <label class="label" for="rq-name">Tu nombre</label>
+                            <input class="input" id="rq-name" name="name" required/>
                         </div>
                         <div class="field">
                             <label class="label" for="rq-email">Email</label>
-                            <input class="input" id="rq-email" name="email" required="" type="email"/>
+                            <input class="input" id="rq-email" name="email" required type="email"/>
                         </div>
                         <div class="field">
-                            <label class="label" for="rq-type">Project type</label>
-                            <select class="select" id="rq-type" name="project_type" required="">
-                                <option disabled="" selected="" value="">Select…</option>
-                                <option>Architectural</option>
-                                <option>Sculpture</option>
-                                <option>Ceramics</option>
-                                <option>Web / Brand Design</option>
-                                <option>3D / Prototyping</option>
+                            <label class="label" for="rq-type">Tipo de proyecto</label>
+                            <select class="select" id="rq-type" name="project_type" required>
+                                <option disabled selected value="">Selecciona…</option>
+                                <option>Arquitectura</option>
+                                <option>3D / Prototipado</option>
+                                <option>Fachada / Interior</option>
+                                <option>Escultura</option>
+                                <option>Cerámica</option>
+                                <option>Web / Diseño de marca</option>
                             </select>
                         </div>
                         <div class="field">
-                            <label class="label" for="rq-msg">Message</label>
-                            <textarea class="textarea" id="rq-msg" name="message" placeholder="Timeline, size, budget range…"></textarea>
+                            <label class="label" for="rq-msg">Mensaje</label>
+                            <textarea class="textarea" id="rq-msg" name="message" placeholder="Plazos, dimensiones, rango de presupuesto…"></textarea>
                         </div>
                         <p aria-live="polite" class="form-status" id="rq-status" role="status"></p>
-                        <button class="btn" type="submit">Send request</button>
+                        <button class="btn" type="submit">Enviar solicitud</button>
                     </form>
                 </div>
             </div>
         </section>
+        <!-- GRID -->
         <main class="stage">
-            <section aria-label="Mosaic with parallax &amp; lightbox" class="grid">
+            <section aria-label="Mosaico con parallax y lightbox" class="grid">
                 <div class="tile a">
                     <div class="slider" data-delay="3000">
-                        <button aria-label="Prev" class="s-btn s-prev">
+                        <button aria-label="Anterior" class="s-btn s-prev">
                             <img alt="" src="images/arrow-L.svg"/>
                         </button>
-                        <button aria-label="Next" class="s-btn s-next">
+                        <button aria-label="Siguiente" class="s-btn s-next">
                             <img alt="" src="images/arrow-L.svg"/>
                         </button>
                         <div class="slides">
@@ -140,7 +143,8 @@
                     </div>
                 </div>
                 <div class="tile one">
-                    <div class="tilt lb" data-album="1" data-captions="Modular panels Bubbles — project of Corte Ingles Decor Studio (Barcelona) , hotel Blanco, Formentera | Modular panels &amp; lattices  — acoustics ceiling, club Tao, Sochi, Russia | Modular lattices  — Centro Comercial Barcelona Glòries | Architectural  lattices  — oficinas de Viajes Corte Ingles, Madrid  | Lattices and Panels  — casa Decor (por Cristina Barriga), Madrid  | Space separator    — cadena de spa, Italia  |  Sommelier restaurant — Lisbon, Portugal  " data-count="7">
+                    <div class="tilt lb" data-album="1" data-captions="Paneles modulares Bubbles — proyecto de El Corte Inglés Decor Studio (Barcelona), hotel Blanco, Formentera | Paneles y celosías modulares — techo acústico, club Tao, Sochi, Rusia | Celosías modulares — Centro Comercial Barcelona Glòries | Celosías arquitectónicas — oficinas de Viajes El Corte Inglés, Madrid | Celosías y paneles — Casa Decor (por Cristina Barriga), Madrid | Separador espacial — cadena de spa, Italia | Restaurante Sommelier — Lisboa, Portugal
+" data-count="7">
                         <div class="layer" data-depth="0">
                             <img alt="" src="images/icon_Bubbles_Alex-hary-design.webp"/>
                         </div>
@@ -148,12 +152,13 @@
                             <img alt="" src="images/grid.svg"/>
                         </div>
                         <div class="layer text" data-depth="1">
-                            <div class="caption">DESIGN SYSTEMS</div>
+                            <div class="caption">SISTEMAS DE DISEÑO</div>
                         </div>
                     </div>
                 </div>
                 <div class="tile two">
-                    <div class="tilt lb" data-album="2" data-captions="Facçade Europe, Almeria, Spain  | Facçade Europe, Almeria, Spain  | Facçade Europe, Almeria, Spain  | Facçade Europe,  Project, CAD  | Facçade Europe, Almeria, Spain | wwwwwww, Almeria, Spain | Facçade Europe, Almeria, Spain | Facçade Europe, Almeria, Spain | Facçade Europe, Almeria, Spain " data-count="8">
+                    <div class="tilt lb" data-album="2" data-captions="Fachada Europe, Almería, España | Fachada Europe, Almería, España | Fachada Europe, Almería, España | Fachada Europe, proyecto CAD | Tienda de mobiliario, Almería, España | Tienda de mobiliario, Almería, España
+" data-count="6">
                         <div class="layer" data-depth="0">
                             <img alt="" src="images/lattices-2.jpg"/>
                         </div>
@@ -161,13 +166,13 @@
                             <img alt="" src="images/grid.svg"/>
                         </div>
                         <div class="layer text" data-depth="1">
-                            <div class="caption">ARCHITECTURAL</div>
+                            <div class="caption">ARQUITECTURA</div>
                         </div>
                     </div>
                 </div>
                 <div class="tile three">
                     <div class="tilt">
-                        <div class="layer" data-depth="0"><a href="https://www.youtube.com/@moviesofpower" rel="noopener" target="_blank"> <img alt="Audiovisual projects on YouTube" src="images/icon_visuals.webp"/> </a>
+                        <div class="layer" data-depth="0"><a href="https://www.youtube.com/@moviesofpower" rel="noopener" target="_blank"> <img alt="Proyectos audiovisuales en YouTube" src="images/icon_visuals.webp"/> </a>
                         </div>
                         <div class="layer" data-depth="2">
                             <img alt="" src="images/grid.svg"/>
@@ -178,7 +183,7 @@
                     </div>
                 </div>
                 <div class="tile four">
-                    <div "="" class="tilt lb" data-album="4" data-captions="Leda and the swan | Nun | Dancing Queen | Circus Buddha, Dance | Snake | Eggs of god | Red dragon" data-count="7">
+                    <div class="tilt lb" data-album="4" data-captions="Leda y el cisne | Monja | Dancing Queen | Buda del circo | Serpiente | Huevos de Dios | Dragón rojo" data-count="7">
                         <div class="layer" data-depth="0">
                             <img alt="" src="images/icon_Leda_Alex-hary-sculpture.webp"/>
                         </div>
@@ -186,12 +191,13 @@
                             <img alt="" src="images/grid.svg"/>
                         </div>
                         <div class="layer text" data-depth="2">
-                            <div class="caption">SCULPTURE</div>
+                            <div class="caption">ESCULTURA</div>
                         </div>
                     </div>
                 </div>
                 <div class="tile five">
-                    <div class="tilt lb" data-album="5" data-captions="Ceramic tiles | Ceramic tiles | Ceramic tiles | Ceramic tiles | Ceramic tiles | Ceramic tiles | Ceramic tiles | Ceramic tiles | Ceramic tiles | Ceramic tiles |  Ceramic tiles |  Ceramic tiles |" data-count="12">
+                    <div class="tilt lb" data-album="5" data-captions="Baldosas cerámicas | Baldosas cerámicas | Baldosas cerámicas | Baldosas cerámicas | Baldosas cerámicas | Baldosas cerámicas | Baldosas cerámicas | Baldosas cerámicas | Baldosas cerámicas | Baldosas cerámicas | Baldosas cerámicas | Baldosas cerámicas
+" data-count="12">
                         <div class="layer" data-depth="0">
                             <img alt="" src="images/tiles-icon.jpg"/>
                         </div>
@@ -199,24 +205,25 @@
                             <img alt="" src="images/grid.svg"/>
                         </div>
                         <div class="layer text" data-depth="1">
-                            <div class="caption">TILES STUDIO</div>
+                            <div class="caption">ESTUDIO DE AZULEJOS</div>
                         </div>
                     </div>
                 </div>
                 <div class="tile six">
                     <div class="tilt">
-                        <div class="layer" data-depth="0"><a href="https://www.youtube.com/embed/RXNO1jLRCas" rel="noopener" target="_blank"> <img alt="Audiovisual projects on YouTube" src="images/icon_projection.webp"/> </a>
+                        <div class="layer" data-depth="0"><a href="https://www.youtube.com/embed/RXNO1jLRCas" rel="noopener" target="_blank"> <img alt="Proyectos de proyección" src="images/icon_projection.webp"/> </a>
                         </div>
                         <div class="layer" data-depth="2">
                             <img alt="" src="images/grid.svg"/>
                         </div>
                         <div class="layer text" data-depth="2">
-                            <div class="caption">INMERSIVE</div>
+                            <div class="caption">INMERSIVO</div>
                         </div>
                     </div>
                 </div>
                 <div class="tile seven">
-                    <div class="tilt lb" data-album="7" data-captions="Urban pergola | Urban pergola | Urban pergola | Urban pergola | Urban pergola | Stand design | Stand design | parametric bar | parametric bar    " data-count="9">
+                    <div class="tilt lb" data-album="7" data-captions="Pérgola urbana | Pérgola urbana | Pérgola urbana | Pérgola urbana | Pérgola urbana | Diseño de stand | Diseño de stand | Barra paramétrica | Barra paramétrica
+" data-count="9">
                         <div class="layer" data-depth="0">
                             <img alt="" src="images/furniture1.jpg"/>
                         </div>
@@ -224,12 +231,13 @@
                             <img alt="" src="images/grid.svg"/>
                         </div>
                         <div class="layer text" data-depth="1">
-                            <div class="caption">EFIMERA</div>
+                            <div class="caption">EFÍMERA</div>
                         </div>
                     </div>
                 </div>
                 <div class="tile eight">
-                    <div class="tilt lb" data-album="8" data-captions="Stoneware &amp; glazes | Stoneware &amp; porcelain | Stoneware | Glazes &amp; oxides finishes | Textured Stoneware | Black / White porcelain and terracotta vases | Ceramic finishes | EVA, porcelain vase | Pedestal, stoneware sculpture | Lustre finishes |" data-count="10">
+                    <div class="tilt lb" data-album="8" data-captions="Gres y esmaltes | Gres y porcelana | Gres | Acabados con esmaltes y óxidos | Gres texturizado | Jarrones de porcelana y terracota en blanco y negro | Acabados cerámicos | EVA, jarrón de porcelana | Pedestal, escultura en gres | Acabados con lustre
+" data-count="10">
                         <div class="layer" data-depth="0">
                             <img alt="" src="images/icon-ceramics.webp"/>
                         </div>
@@ -237,7 +245,7 @@
                             <img alt="" src="images/grid.svg"/>
                         </div>
                         <div class="layer text" data-depth="1">
-                            <div class="caption">CERAMICS</div>
+                            <div class="caption">CERÁMICA</div>
                         </div>
                     </div>
                 </div>
@@ -246,7 +254,7 @@
         <footer class="site-footer">
             <div class="site-footer__inner">
                 <div>webdesign: turchanov.com</div>
-                <nav aria-label="social links" class="social"><a aria-label="LinkedIn" href="https://www.linkedin.com/in/alexhary/"><img alt="" src="images/social_linkedin.svg"/></a><a aria-label="Facebook" href="https://www.facebook.com/alex.hary"><img alt="" src="images/social_facebook.svg"/></a><a aria-label="Instagram" href="https://www.instagram.com/aleksey.turchanov"><img alt="" src="images/social_instagram.svg"/></a>
+                <nav aria-label="enlaces sociales" class="social"><a aria-label="LinkedIn" href="https://www.linkedin.com/in/alexhary/"><img alt="" src="images/social_linkedin.svg"/></a><a aria-label="Facebook" href="https://www.facebook.com/alex.hary"><img alt="" src="images/social_facebook.svg"/></a><a aria-label="Instagram" href="https://www.instagram.com/aleksey.turchanov"><img alt="" src="images/social_instagram.svg"/></a>
                 </nav>
             </div>
         </footer>
