@@ -79,6 +79,14 @@ img {
     background: rgba(255,255,255,.12);
 }
 
+.about {
+    max-width: 948px;
+    width: 100%;
+    margin: 15px auto;
+    padding-left: clamp(20px, 4vw, 40px);
+    padding-right: clamp(20px, 4vw, 40px);
+}
+
 /* ================== ACCORDION ================== */
 .accordion {
     overflow: hidden;
@@ -551,4 +559,9 @@ img {
     opacity: 1;
 }
 
-.form-status{margin:8px 0 10px;min-height:1.2em;color:#9aa3aa;transition:opacity .3s ease;}
+.form-status {
+    margin: 8px 0 10px;
+    min-height: 1.2em;
+    color: #9aa3aa;
+    transition: opacity .3s ease;
+}
